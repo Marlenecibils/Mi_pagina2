@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Especial</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Brush Script MT', cursive;
+            text-align: center;
+            padding: 50px;
+            color: #ff4081;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #d81b60;
+            text-shadow: 2px 2px 5px #ff80ab;
+        }
+
+        .heart {
+            font-size: 50px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            font-size: 1.5em;
+            padding: 20px 40px;
+            border: 2px solid #ff80ab;
+            background-color: transparent;
+            color: #ff80ab;
+            cursor: pointer;
+            border-radius: 30px;
+            margin: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #ff80ab;
+            color: white;
+        }
+
+        .move {
+            position: relative;
+            transition: transform 1s;
+        }
+
+        .move.right {
+            transform: translateX(300px);
+        }
+
+        .move.left {
+            transform: translateX(-300px);
+        }
+
+        #yesMessage {
+            display: none;
+            font-size: 2em;
+            color: #ff4081;
+            margin-top: 20px;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts">💖💖💖</div>
+    <h1>¿Será que puedo ser tu novia? 💖</h1>
+
+    <div class="buttons">
+        <button class="btn" id="yesBtn">Sí</button>
+        <button class="btn move" id="noBtn">No</button>
+    </div>
+
+    <div id="yesMessage">Ayyy😭 estoy ree loca por vos, te voy a dar mi contraseña de todas mis redes, de ley</div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const yesMessage = document.getElementById('yesMessage');
+
+        yesBtn.addEventListener('click', () => {
+            yesMessage.style.display = 'block';
+        });
+
+        noBtn.addEventListener('click', () => {
+            if (noBtn.classList.contains('right')) {
+                noBtn.classList.remove('right');
+                noBtn.classList.add('left');
+            } else {
+                noBtn.classList.remove('left');
+                noBtn.classList.add('right');
+            }
+        });
+    </script>
+
+</body>
+</html>
